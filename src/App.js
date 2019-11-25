@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import { InfoBox } from './InfoBox'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const useFetch = url => {
+  const [data, updateData] = useState([])
+  debugger
+  // empty array as second argument equivalent to componentDidMount
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(url)
+      const json = await response.json()
+      updateData(json)
+    }
+    fetchData()
+  }, [url])
+
+  return data
 }
 
-export default App;
+function App() {
+  const URL =
+    'https://my-json-server.typicode.com/ilyalytvynov/ads-box-server/ads'
+  const items = useFetch(URL)
+  return <InfoBox items={items} />
+}
+
+export default App

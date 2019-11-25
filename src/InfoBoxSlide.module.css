@@ -1,0 +1,73 @@
+.slide {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  flex-grow: 0;
+  flex-shrink: 0;
+  z-index: -1;
+}
+
+.title {
+  font-size: 18px;
+  color: rgb(251, 102, 0);
+  font-weight: bold;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.segment {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s 0.1s;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%);
+  transition: transform 0.5s;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+.expand .content {
+  transform: translateY(0);
+}
+
+.expand .segment {
+  opacity: 1;
+  visibility: visible;
+}
+
+.thumbnail {
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.thumbnail > img {
+  width: 100%;
+  display: block;
+}
+
+.footer {
+  position: relative;
+  z-index: 10;
+  padding: 0 8px;
+}
+
+.btn {
+  z-index: 100;
+  background: transparent;
+  border: none;
+  color: rgb(251, 102, 0);
+  text-align: left;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
