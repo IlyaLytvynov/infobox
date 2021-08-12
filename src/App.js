@@ -22,7 +22,7 @@ function App() {
     'https://boring-fe.herokuapp.com/react-hw-1';
   const items = useFetch(URL);
   if (!items || items.length === 0) {
-    return <h2>Sorry, something goes wrong :(</h2>;
+    return <h2>Loading...</h2>;
   }
   return <div class="App-wrapper">
     <InfoBox items={items} />
