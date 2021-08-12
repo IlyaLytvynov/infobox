@@ -31,13 +31,15 @@
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
-  transition: transform 0.5s;
+  transition: all 0.5s;
   margin-bottom: 20px;
   padding: 0 8px;
+  padding-top: 10px;
 }
 
 .expand .content {
   transform: translateY(0);
+  background: #fff;
 }
 
 .expand .segment {
